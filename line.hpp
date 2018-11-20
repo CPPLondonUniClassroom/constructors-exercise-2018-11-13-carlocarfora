@@ -10,8 +10,15 @@
 #include <ostream>
 
 struct line {
-    point start;
-    point end;
+
+    line() = default;
+
+    line(point start, point end);
+
+    point start = point{};
+    point end{0, 0}; // or just {}
+
+    double length() const;
 };
 
 std::ostream& operator<<(std::ostream& os, const line& l);

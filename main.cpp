@@ -77,8 +77,31 @@ void test_point()
 
 void test_line()
 {
-    // Add your test code in here
+    // Test two-argument constructor
+    {
+        const point p1{1, 2}, p2{3, 4};
+        const line l(p1, p2);
+        assert(l.start == p1);
+        assert(l.end == p2);
+    }
 
+    // Test default constructor
+    {
+        const line l{};
+
+        assert((l.start == point{0, 0}));
+        assert((l.end == point{}));
+    }
+
+    // Test length() member
+    {
+        const line l1{point{}, point{9, 12}};
+        assert(l1.length() == 15.0);
+
+        const line l2{point{1, 2}, point{-4, -10}};
+        assert(l2.length() == 13.0);
+
+    }
 }
 
 int main()
