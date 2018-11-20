@@ -4,6 +4,7 @@
 
 #include <cassert>
 #include <sstream>
+#include <iostream>
 
 void test_point()
 {
@@ -78,7 +79,19 @@ void test_point()
 void test_line()
 {
     // Add your test code in here
+    point p1{1,1};
+    point p2{1,1};
+    point p3{0,0};
+    line l1{p1,p1};
+    line l2{};
+    line l3{p3,p3};
+    assert(l2 == l3);
+    assert(l1 == line(p1,p2));
 
+    point p4{3,3};
+    point p5{5,5};
+    line l4(p4,p5);
+    assert(l4.length() == 2.8284271247461903);
 }
 
 int main()
